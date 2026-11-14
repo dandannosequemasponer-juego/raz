@@ -56,7 +56,7 @@ public class ProtocolLibHook {
                     if (ownerUuid == null || !ownerUuid.equals(receiver.getUniqueId())) {
                         return;
                     }
-                    PlayerData data = plugin.getPlayerDataManager().get(ownerUuid);
+                    PlayerData data = ProtocolLibHook.this.plugin.getPlayerDataManager().get(ownerUuid);
                     if (data != null && data.isFirstPersonWingsHidden()) {
                         event.setCancelled(true);
                     }

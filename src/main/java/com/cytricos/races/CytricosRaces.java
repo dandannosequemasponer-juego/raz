@@ -172,7 +172,7 @@ public class CytricosRaces extends JavaPlugin {
         if (cosmeticsManager != null) cosmeticsManager.stopAuraTask();
         if (wingsManager != null) wingsManager.stopSyncTask();
         if (headCosmeticManager != null) headCosmeticManager.stopSyncTask();
-        if (protocolLibHook != null) protocolLibHook.unregisterAll();
+        if (protocolLibHook != null) protocolLibHook.shutdown();
 
         if (playerDataManager != null) playerDataManager.saveAll();
         if (storageManager != null) storageManager.close();

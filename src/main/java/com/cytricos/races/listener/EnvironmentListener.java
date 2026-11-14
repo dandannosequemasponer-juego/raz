@@ -7,7 +7,7 @@ import org.bukkit.*;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
-import org.bukkit.block.data.type.RedstoneLamp;
+import org.bukkit.block.data.Lightable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -242,7 +242,7 @@ public class EnvironmentListener implements Listener {
                     Material m = b.getType();
                     if (raceId.equals("vampire")) {
                         boolean litRedstone = m == Material.REDSTONE_BLOCK
-                                || (m == Material.REDSTONE_LAMP && b.getBlockData() instanceof RedstoneLamp lamp && lamp.isLit())
+                                || (m == Material.REDSTONE_LAMP && b.getBlockData() instanceof Lightable lamp && lamp.isLit())
                                 || m == Material.BEACON;
                         if (litRedstone) {
                             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 50, 1, false, false));

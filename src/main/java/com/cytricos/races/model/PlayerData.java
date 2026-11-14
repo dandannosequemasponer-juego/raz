@@ -325,6 +325,10 @@ public class PlayerData {
         this.talentPoints = Math.max(0, this.talentPoints + points);
     }
 
+    public void incrementMobKillsCounter() {
+        this.mobKillsCounter++;
+    }
+
     public int getMobKillsCounter() {
         return mobKillsCounter;
     }

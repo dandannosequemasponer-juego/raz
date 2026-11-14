@@ -74,7 +74,7 @@ public class LibsDisguisesHook {
             mobDisguise.setHideArmorFromSelf(true);
 
             try {
-                mobDisguise.getWatcher().setArmorVisible(false);
+                // armor hidden via setArmor
             } catch (Throwable ignored) {}
             try {
                 mobDisguise.getWatcher().setArmor(new org.bukkit.inventory.ItemStack[4]);

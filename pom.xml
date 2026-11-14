@@ -24,11 +24,11 @@
     <developers>
         <developer>
             <name>Dandan_13</name>
-            <role>Lead Developer</role>
+            <roles><role>Lead Developer</role></roles>
         </developer>
         <developer>
             <name>Wolfit12</name>
-            <role>Lead Developer</role>
+            <roles><role>Lead Developer</role></roles>
         </developer>
     </developers>
 
@@ -230,6 +230,18 @@
                         </configuration>
                     </execution>
                 </executions>
+                            <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>9.8</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-commons</artifactId>
+                        <version>9.8</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
