@@ -1,0 +1,886 @@
+# MASTER DEVELOPMENT PROMPT — CYTRICOS RPG RACES SYSTEM
+
+## ROLE AND OBJECTIVE
+
+Act as a senior Minecraft Paper plugin developer, Java architect, gameplay systems designer, database engineer, and software QA specialist.
+
+Your task is to perform a complete technical and gameplay audit of my existing Minecraft plugin, **CytricosRaces**, and transform it into a polished, reliable, feature-rich RPG race system.
+
+This is NOT a request to create a new plugin from scratch.
+
+You must inspect the existing source code, understand its architecture, identify incomplete implementations and bugs, preserve working functionality, and implement the missing mechanics properly.
+
+### Mandatory development environment
+
+- Minecraft server: Paper 26.2.
+- Java: 25.
+- Build system: Maven.
+- Existing plugin: CytricosRaces.
+- Existing plugin version: 7.0.0.
+- Language of all player-facing content: Spanish.
+- Technical language, code comments and internal documentation: English is acceptable.
+- Compatibility target: Paper 26.2.
+- Do not use APIs exclusive to Paper 26.3 or later.
+- Ensure `plugin.yml` declares the correct API version: `26.2`.
+
+Do not upgrade or downgrade the project without explaining why and obtaining a clear technical justification.
+
+---
+
+# 1. FIRST: COMPLETE PROJECT AUDIT
+
+Before changing any code:
+
+1. Inspect the entire project structure.
+2. Read the Maven `pom.xml`.
+3. Inspect `plugin.yml`.
+4. Inspect every Java package and class.
+5. Identify all race definitions, abilities, disadvantages, listeners, commands, menus, configuration files and database systems.
+6. Identify all existing integrations.
+7. Find incomplete methods, TODO comments, empty methods, duplicated listeners, incorrect event handling and features that are declared but never actually implemented.
+8. Identify race mechanics that appear functional but do not work in practice.
+9. Identify potential conflicts between listeners and external plugins.
+10. Check whether race data, player levels and cooldowns persist correctly after server restarts.
+
+Create an audit report containing:
+
+- Existing functionality.
+- Broken functionality.
+- Missing functionality.
+- Technical problems.
+- Dependencies.
+- Recommended improvements.
+- Implementation plan.
+
+Do not invent classes, methods, configuration options or existing functionality. Verify everything in the actual source code.
+
+Preserve the current project architecture whenever reasonably possible.
+
+---
+
+# 2. CRITICAL BUG: LEGACY CHAT COLOR CODES
+
+One of the most important problems is that traditional Minecraft color codes do not work consistently.
+
+For example:
+
+`&6&lHola`
+
+Should display a bold golden message.
+
+However, certain plugin functions display the literal text instead of formatting the colors.
+
+Fix this throughout the ENTIRE plugin.
+
+Requirements:
+
+- Create or repair a centralized text formatting utility.
+- Correctly support `&0` through `&9`.
+- Correctly support `&a` through `&f`.
+- Correctly support formatting codes such as `&l`, `&o`, `&n`, `&m`, `&k` and `&r`.
+- Support uppercase variants.
+- Support hexadecimal colors if compatible with the selected Adventure serializer.
+- Ensure consistent formatting in chat, menus, inventory names, lore, action bars, titles, subtitles, boss bars, messages and ability notifications.
+- Ensure configuration files can use traditional ampersand formatting.
+- Ensure formatting resets and does not leak into subsequent text.
+- Do not simply replace ampersands with section symbols throughout the code.
+- Use an appropriate Adventure serializer, such as `LegacyComponentSerializer.legacyAmpersand()`, where appropriate.
+- Avoid incorrectly mixing MiniMessage syntax with legacy formatting.
+
+Create one centralized formatting system and migrate all relevant plugin messages to it.
+
+Test the same color formatting across every message delivery mechanism.
+
+---
+
+# 3. RACE ABILITIES: COMPLETE FUNCTIONALITY
+
+Many race abilities currently exist but are not working properly.
+
+Audit EVERY race and EVERY ability.
+
+For each race, identify:
+
+- Passive abilities.
+- Active abilities.
+- Level-unlocked abilities.
+- Disadvantages.
+- Cooldowns.
+- Required resources.
+- Activation conditions.
+- PvP restrictions.
+- Missing implementations.
+
+An ability must never be considered implemented merely because it appears in a menu or configuration file.
+
+It must actually work in-game.
+
+Create a centralized and extensible ability management system.
+
+Each ability should support:
+
+- Configurable activation method.
+- Configurable cooldown.
+- Configurable resource cost.
+- Configurable unlock level.
+- Configurable duration.
+- Configurable range.
+- Configurable success probability.
+- Configurable messages.
+- Configurable permissions.
+- Configurable PvP restrictions.
+
+## Ability activation system
+
+I want abilities to be useful in PvP and normal gameplay.
+
+Implement a flexible activation system supporting configurable combinations such as:
+
+- Sneak + right-click.
+- Sneak + left-click.
+- Right-click.
+- Left-click.
+- Other compatible player inputs.
+
+These combinations must be configurable independently for each ability.
+
+Avoid triggering abilities accidentally when players interact with blocks, containers, NPCs or other plugin systems.
+
+Prevent duplicated activations caused by overlapping interaction events.
+
+Implement:
+
+- Cooldowns.
+- Activation feedback.
+- Resource requirements.
+- Unlock-level checks.
+- Anti-spam protection.
+- Proper event cancellation only when necessary.
+- Configurable action restrictions.
+- Combat restrictions where appropriate.
+
+## Movement and action-based charging
+
+Introduce a configurable progression/resource system that allows abilities to become available after performing a certain number of actions or movement-related activities.
+
+Examples:
+
+- Walking a certain distance.
+- Running.
+- Performing specific actions.
+- Successfully participating in combat.
+- Other race-specific activities.
+
+The exact requirements must be configurable.
+
+Display the resource or charge progress to players using appropriate Minecraft UI elements.
+
+Do not create excessive repeating tasks or inefficient event listeners.
+
+Persist relevant player progress.
+
+---
+
+# 4. GOBLIN RACE: RANDOM THEFT
+
+The Goblin race must have a functional random theft mechanic.
+
+Currently, this feature is not working correctly.
+
+Implement a complete system where Goblins have a configurable chance to steal an eligible item or resource from another player under the configured conditions.
+
+Requirements:
+
+- Configurable theft probability.
+- Configurable cooldown.
+- Configurable maximum theft amount.
+- Configurable eligible item list.
+- Configurable excluded item list.
+- Configurable minimum Goblin level.
+- Configurable notification messages.
+- Configurable activation conditions.
+- Proper inventory handling.
+- No item duplication.
+- No item deletion if the receiving inventory is full.
+- Prevent theft from creative-mode players.
+- Prevent theft from protected or exempt players.
+- Avoid stealing equipment or important items unless explicitly allowed by configuration.
+- Respect server protection plugins where possible.
+
+The mechanic must be balanced and suitable for multiplayer PvP.
+
+Provide an administrative configuration to enable, disable and balance this ability.
+
+---
+
+# 5. VAMPIRE RACE: FLIGHT WHILE TRANSFORMED
+
+Vampires must be able to fly while transformed, if the existing race design supports that transformation.
+
+Audit the current transformation implementation.
+
+Fix the entire transformation and flight lifecycle.
+
+Requirements:
+
+- Flight must activate correctly when the Vampire is transformed.
+- Flight must stop when the transformation ends.
+- Flight must not remain enabled after death, disconnect, world change or race change.
+- Restore the player's previous flight settings correctly.
+- Prevent flight-state conflicts with other plugins.
+- Make flight duration and restrictions configurable.
+- Ensure the transformation state persists or resets according to the configured design.
+- Provide clear Spanish notifications.
+
+Do not accidentally grant permanent flight to players who are no longer eligible.
+
+---
+
+# 6. VAMPIRE RACE: SUNLIGHT WEAKNESS AND HELMET PROTECTION
+
+This disadvantage is essential and currently does not work correctly.
+
+Vampires must suffer damage and visibly catch fire when exposed to direct sunlight.
+
+Implement a reliable sunlight detection system.
+
+Requirements:
+
+- Detect actual exposure to sunlight.
+- Distinguish sunlight from ordinary darkness.
+- Avoid applying sunlight damage underground or when properly sheltered.
+- Respect world-specific configuration.
+- Avoid unnecessary damage ticks.
+- Apply visual fire effects when appropriate.
+- Ensure the mechanic works consistently after relogging and world changes.
+
+## Helmet progression system
+
+Vampires should progressively become more resistant to sunlight as they level up.
+
+Implement a configurable protection table.
+
+Suggested progression:
+
+- Level 1: Netherite or diamond helmet protection.
+- Level 2: Configurable weaker helmet protection.
+- Level 3: Configurable weaker helmet protection.
+- Level 4: Configurable weaker helmet protection.
+- Level 5: Configurable weaker helmet protection.
+- Level 6: No helmet required.
+
+The exact protection requirements and damage values must be editable by administrators.
+
+Make sure the protection logic checks the actual helmet material and race level.
+
+Do not allow an unapproved helmet to grant protection.
+
+Provide configuration options for:
+
+- Damage per interval.
+- Fire duration.
+- Damage interval.
+- Helmet materials accepted at each level.
+- Whether enchantments matter.
+- Whether certain worlds disable the disadvantage.
+- Whether specific weather conditions affect sunlight exposure.
+
+The level progression must feel meaningful and balanced.
+
+---
+
+# 7. VAMPIRE RACE: FEEDING AND FOOD SYSTEM
+
+Vampires should recover hunger when successfully hitting eligible enemies.
+
+Implement a feeding system.
+
+Requirements:
+
+- Successful hits can restore hunger.
+- Configure the amount restored.
+- Configure the probability of feeding.
+- Configure cooldowns.
+- Avoid feeding from invalid targets.
+- Avoid feeding from creative-mode or protected players.
+- Ensure it cannot be abused through repeated hits or artificial combat loops.
+- Provide appropriate Spanish feedback.
+
+Vampires must also be able to consume beetroot soup as an additional food source.
+
+Check how Minecraft handles food consumption and ensure the soup works correctly for Vampires.
+
+The system must not break ordinary food mechanics for other races.
+
+---
+
+# 8. RACE MENU: PREVENT UNAUTHORIZED RACE CHANGES
+
+This is a major gameplay requirement.
+
+Currently, players can potentially change race by simply selecting another race.
+
+That must stop.
+
+## Normal race menu
+
+If a player already has a race and clicks another race in the normal race selection menu:
+
+- They must NOT immediately change race.
+- The plugin must open that race's level information menu instead.
+- They must be able to inspect the race without changing their current race.
+
+## Race level information menu
+
+For a player inspecting a race:
+
+### Level 1
+
+Display:
+
+- All disadvantages of the race.
+- All advantages unlocked at level 1.
+- Requirements for the next level.
+- General race information.
+
+### Levels 2 and above
+
+Display only:
+
+- Advantages unlocked at that level.
+- Relevant level information.
+- Requirements for future progression.
+
+The interface must be clear, attractive and entirely in Spanish.
+
+## Race change button
+
+The bottom-right inventory slot must contain lime-green wool.
+
+This item is the dedicated race change button.
+
+When clicked, open a race change payment menu.
+
+The player must be able to choose between:
+
+1. Paying with an item.
+2. Paying with money.
+
+### Item payment
+
+Administrators and owners must be able to configure:
+
+- Required material.
+- Required amount.
+- Optional custom item name.
+- Optional custom item metadata.
+- Optional enchantments.
+- Whether the item must match exactly.
+- Whether the payment is refundable.
+
+### Economy payment
+
+Administrators and owners must be able to configure:
+
+- Price for changing race.
+- Individual race prices.
+- Whether race changes are enabled.
+- Economy requirements.
+- Whether discounts or special conditions apply.
+
+Integrate with Vault when an economy provider is available.
+
+Do not charge players unless the race change can actually be completed.
+
+Make the entire payment process safe against double-clicks, inventory manipulation and transaction exploits.
+
+Provide clear confirmation messages before completing a race change.
+
+---
+
+# 9. CHAT FORMAT: DISPLAY RACE LEVEL
+
+Currently, chat only displays:
+
+`[Rank] PlayerName`
+
+I want the chat format to display:
+
+`[Rank] PlayerName [Race Level]`
+
+For example:
+
+`[Admin] Dandan_13 [Vampiro - Nivel 4]: Hola`
+
+Requirements:
+
+- Obtain the rank prefix from LuckPerms.
+- Obtain the race name and level from CytricosRaces.
+- Display race names in Spanish.
+- Display level names in Spanish.
+- Update automatically when a player levels up or changes race.
+- Handle players without a race.
+- Handle missing LuckPerms data gracefully.
+- Preserve legacy color formatting.
+- Avoid duplicate chat formatting.
+
+IMPORTANT:
+
+The TAB player list must NOT display the race level.
+
+The TAB player list must only display:
+
+`[Rank] PlayerName`
+
+Do not allow CytricosRaces to overwrite or conflict with TAB's player-list formatting.
+
+Keep chat formatting and tab formatting completely separate.
+
+Use PlaceholderAPI integration where appropriate.
+
+Create a placeholder such as:
+
+`%cytricosraces_race%`
+`%cytricosraces_level%`
+`%cytricosraces_level_name%`
+`%cytricosraces_race_display%`
+
+Make sure the placeholders are actually registered and return correct values.
+
+Document the recommended TAB configuration.
+
+---
+
+# 10. SPANISH RACE NAMES AND ADMIN COMMANDS
+
+The plugin currently requires English race names in certain commands.
+
+For example:
+
+`/raza admin establecer jugador Dandan_13 Vampire`
+
+I want the Spanish equivalent to work:
+
+`/raza admin establecer jugador Dandan_13 Vampiro`
+
+Requirements:
+
+- All player-facing race names must be Spanish.
+- All race level names must be Spanish.
+- Commands should accept Spanish race names.
+- Existing English internal identifiers must remain stable where necessary.
+- Implement a translation/alias layer between display names and internal race IDs.
+- Support accented and unaccented input where appropriate.
+- Avoid breaking existing stored player data.
+- Provide useful tab completion in Spanish.
+- Provide Spanish command error messages.
+
+Do not rename database identifiers unnecessarily.
+
+The internal race ID can remain `VAMPIRE`, while the display name is `Vampiro`.
+
+Apply this consistently to every race.
+
+---
+
+# 11. RACE LEVEL PROGRESSION
+
+Audit the progression system for every race.
+
+Requirements:
+
+- Verify that all level unlocks work.
+- Verify that all advantages are actually activated at their intended level.
+- Verify that disadvantages are applied correctly.
+- Ensure levels are saved persistently.
+- Ensure players cannot unlock levels without meeting requirements.
+- Ensure progress cannot be duplicated.
+- Ensure level-up notifications work.
+- Ensure level names are Spanish.
+- Ensure all level requirements can be configured.
+- Ensure each race has a consistent progression structure.
+
+Create a centralized progression system rather than duplicating progression logic across listeners.
+
+---
+
+# 12. ADMINISTRATOR AND OWNER CONFIGURATION
+
+This is one of the most important requirements.
+
+I want administrators and owners to be able to configure virtually every gameplay parameter without modifying Java source code.
+
+Create a well-organized configuration structure.
+
+Possible files:
+
+- config.yml
+- messages.yml
+- races.yml
+- abilities.yml
+- progression.yml
+- menus.yml
+- economy.yml
+- integrations.yml
+
+Adapt this structure to the existing project if it already has a better configuration architecture.
+
+Everything reasonably configurable should be configurable:
+
+- Race names.
+- Race descriptions.
+- Race advantages.
+- Race disadvantages.
+- Ability activation keys.
+- Ability cooldowns.
+- Ability durations.
+- Ability probabilities.
+- Damage values.
+- Healing values.
+- Food restoration.
+- Sunlight damage.
+- Helmet protection.
+- Flight restrictions.
+- Theft probabilities.
+- Level requirements.
+- Menu layouts.
+- Menu item names.
+- Menu lore.
+- Prices.
+- Required payment items.
+- Messages.
+- Permissions.
+- World restrictions.
+- PvP restrictions.
+
+Add configuration validation.
+
+If an administrator enters an invalid value, provide a clear warning rather than silently breaking the plugin.
+
+Implement configuration reload support where safe.
+
+Do not require a full server restart for settings that can safely be reloaded.
+
+---
+
+# 13. PERMISSIONS AND LUCKPERMS
+
+Implement a clear permission system.
+
+Examples:
+
+- `cytricosraces.admin`
+- `cytricosraces.owner`
+- `cytricosraces.race`
+- `cytricosraces.ability`
+- `cytricosraces.level`
+- `cytricosraces.bypass.sunlight`
+
+Ensure permissions are checked server-side.
+
+Administrators must not accidentally gain unrestricted powers merely because they have a visual menu open.
+
+Make the permission hierarchy configurable where possible.
+
+Integrate with LuckPerms without requiring internal modifications to LuckPerms.
+
+Document the recommended permission assignments.
+
+---
+
+# 14. DEPENDENCIES AND INTEGRATIONS
+
+Audit all existing dependencies before adding new ones.
+
+The project may already use:
+
+- Paper API.
+- LuckPerms.
+- Vault.
+- PlaceholderAPI.
+- TAB.
+- LibsDisguises.
+- PacketEvents.
+- WorldGuard.
+- HikariCP.
+
+Do not add unnecessary dependencies.
+
+For every integration:
+
+1. Check whether the plugin is installed.
+2. Check whether it is enabled.
+3. Check whether the installed version is compatible.
+4. Handle missing optional dependencies gracefully.
+5. Avoid crashing the entire plugin because an optional integration is unavailable.
+
+For LibsDisguises, inspect the existing integration and ensure the correct PacketEvents dependency/version is used.
+
+Do not assume that adding a Maven dependency automatically installs the corresponding server plugin.
+
+Document which dependencies must actually be installed on the Minecraft server.
+
+Use `softdepend` or `depend` in plugin.yml appropriately.
+
+---
+
+# 15. DATABASE AND PLAYER DATA
+
+Inspect the current storage system.
+
+Ensure that the following information is persistent:
+
+- Selected race.
+- Race level.
+- Progression.
+- Unlocked abilities.
+- Relevant ability resources.
+- Cooldowns where appropriate.
+- Transformation state where appropriate.
+- Other essential player-specific information.
+
+Requirements:
+
+- Avoid blocking the main server thread with database operations.
+- Prevent data loss.
+- Handle disconnects and shutdowns correctly.
+- Handle database errors gracefully.
+- Avoid duplicate player records.
+- Use UUIDs as player identifiers.
+- Provide safe migrations if the schema needs to change.
+- Preserve existing player data.
+
+Never wipe existing player data during an update.
+
+---
+
+# 16. PERFORMANCE AND SERVER STABILITY
+
+The plugin must be suitable for a real multiplayer Minecraft server.
+
+Audit:
+
+- Repeating tasks.
+- Event listeners.
+- Entity searches.
+- Inventory operations.
+- Database queries.
+- Player loops.
+- Particle effects.
+- Scheduler usage.
+- Memory management.
+
+Avoid:
+
+- Unnecessary synchronous database queries.
+- Excessive repeating tasks.
+- Duplicate event listeners.
+- Memory leaks.
+- Unbounded collections.
+- Excessive entity scanning.
+- Repeated expensive configuration reads.
+- Unsafe asynchronous Bukkit API access.
+
+Use efficient event-driven systems.
+
+Ensure player-specific tasks are cancelled when players disconnect or when the plugin disables.
+
+---
+
+# 17. MENUS AND USER EXPERIENCE
+
+Improve the overall interface without destroying the existing menu design.
+
+Requirements:
+
+- Consistent Spanish terminology.
+- Clear descriptions.
+- Attractive item names and lore.
+- Correct colors.
+- No broken inventory interactions.
+- No item duplication exploits.
+- No unauthorized race changes.
+- Proper menu navigation.
+- Clear confirmation screens.
+- Clear payment information.
+- Display race disadvantages and advantages accurately.
+- Display progression requirements accurately.
+
+Ensure that every menu action performs the advertised action.
+
+---
+
+# 18. TESTING AND QUALITY ASSURANCE
+
+Do not stop after editing the source code.
+
+Create a comprehensive testing checklist.
+
+At minimum, test:
+
+### Chat and formatting
+- Legacy colors.
+- Bold and italic formatting.
+- Hexadecimal colors if supported.
+- Chat rank.
+- Race level in chat.
+- TAB format without race level.
+
+### Races
+- Every race selection.
+- Every race level.
+- Every passive ability.
+- Every active ability.
+- Every disadvantage.
+- Every race change restriction.
+
+### Vampires
+- Sunlight damage.
+- Fire effect.
+- Helmet protection.
+- Level-based protection.
+- Transformation.
+- Flight.
+- Feeding.
+- Beetroot soup.
+
+### Goblins
+- Random theft.
+- Probability.
+- Cooldowns.
+- Item exclusions.
+- Inventory-full situations.
+
+### Menus
+- Race information.
+- Level information.
+- Lime-green wool race change button.
+- Item payment.
+- Money payment.
+- Confirmation.
+- Invalid transactions.
+
+### Persistence
+- Server restart.
+- Player disconnect.
+- Player reconnect.
+- Race progression.
+- Race changes.
+
+### Compatibility
+- Paper 26.2.
+- Java 25.
+- Maven.
+- Existing integrations.
+
+Add unit tests for logic that can be tested without starting a Minecraft server.
+
+Use integration tests where practical.
+
+Never claim that an in-game feature has been tested if it has only been compiled.
+
+---
+
+# 19. DEVELOPMENT RULES — EXTREMELY IMPORTANT
+
+Follow these rules throughout the task:
+
+1. Do not rewrite the entire project unnecessarily.
+2. Do not delete existing race mechanics without justification.
+3. Do not replace functioning systems with incomplete placeholders.
+4. Do not leave TODO comments instead of implementing requested features.
+5. Do not create fake functionality.
+6. Do not claim an ability works just because its class exists.
+7. Do not silently ignore errors.
+8. Do not introduce incompatible dependencies.
+9. Do not use Paper 26.3-only APIs.
+10. Do not change the project's Java version away from Java 25.
+11. Do not break existing commands.
+12. Do not break existing player data.
+13. Do not hardcode values that administrators should configure.
+14. Do not make the chat format override TAB.
+15. Do not allow players to change races by simply clicking another race.
+16. Do not modify the existing database destructively.
+17. Keep code organized, maintainable and documented.
+
+If a requested feature cannot be implemented because essential information is missing, explain exactly what is missing.
+
+If you discover that the existing architecture cannot safely support a feature, propose the smallest reasonable architectural improvement before proceeding.
+
+---
+
+# 20. FINAL BUILD AND DELIVERY
+
+Once the implementation is complete:
+
+1. Run a complete Maven build.
+2. Run all available tests.
+3. Resolve all compilation errors.
+4. Resolve all warnings that indicate genuine problems.
+5. Verify that `plugin.yml` targets Paper 26.2.
+6. Verify that Java 25 is used.
+7. Verify that all required resources are included in the JAR.
+8. Verify that the JAR contains the expected plugin classes.
+9. Verify dependency compatibility.
+10. Provide a clear summary of all modifications.
+
+The final report MUST include:
+
+- Bugs fixed.
+- Features implemented.
+- Features improved.
+- New configuration options.
+- Dependencies required on the server.
+- New commands or placeholders.
+- Database changes and migration information.
+- Known limitations.
+- Build result.
+- Exact JAR output path.
+
+Only report BUILD SUCCESS if Maven actually returns BUILD SUCCESS.
+
+Do not claim that the plugin is fully functional in-game unless it has been tested on a real Paper 26.2 server.
+
+---
+
+# 21. COMMUNICATION LANGUAGE
+
+This instruction is mandatory:
+
+**ALL PLAYER-FACING CONTENT MUST BE IN SPANISH.**
+
+This includes:
+
+- Chat messages.
+- Menu names.
+- Menu descriptions.
+- Race names.
+- Race levels.
+- Ability names.
+- Ability descriptions.
+- Notifications.
+- Errors.
+- Command responses.
+- Help messages.
+- Confirmation messages.
+- Progression messages.
+
+Technical explanations and source-code comments may be in English.
+
+When presenting the final report to me, explain everything in Spanish.
+
+---
+
+# FINAL OBJECTIVE
+
+I want CytricosRaces to become a complete, professional-quality Minecraft RPG race system.
+
+I want every race to feel unique, every ability to have a real purpose, disadvantages to matter, progression to be meaningful, menus to be intuitive, and administrators to have extensive control over gameplay.
+
+Prioritize correctness, stability, performance, compatibility and maintainability over adding superficial features.
+
+Start by auditing the actual project files.
+
+Then implement the improvements systematically.
+
+Do not stop at an audit report: proceed with the implementation wherever the available project files and tools allow it.

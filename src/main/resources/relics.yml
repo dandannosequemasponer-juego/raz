@@ -1,0 +1,105 @@
+# ===================================================================
+# CYTRICOS RPG - REPOSITORIO DE RELIQUIAS Y BOTÍN DE JEFES (v7.0)
+# Desarrolladores Líderes: Dandan_13 & Wolfit12
+# ===================================================================
+
+relics:
+  phoenix_ember_ring:
+    offhand_passive: "Otorga Resistencia al Fuego permanente, inmunidad a quemaduras, aura solar y daño ígneo adicional."
+    drop_rules:
+      - custom_mob_id: "ignis_phoenix"
+        display_name_contains: "Fénix"
+        entity_type: "BLAZE"
+        drop_chance: 0.12
+      - custom_mob_id: "wither_lord"
+        display_name_contains: ""
+        entity_type: "WITHER"
+        drop_chance: 0.35
+
+  vampire_blood_chalice:
+    offhand_passive: "Regenera saturación sanguínea lentamente y otorga +15% de robo de vida cuerpo a cuerpo."
+    drop_rules:
+      - custom_mob_id: "crimson_lord"
+        display_name_contains: "Vampiro"
+        entity_type: "VEX"
+        drop_chance: 0.10
+
+  abyssal_demon_blade:
+    offhand_passive: "Imbuye tus golpes de aura demoníaca (+10% daño contra entidades sin armadura)."
+    drop_rules:
+      - custom_mob_id: "abyssal_brute"
+        display_name_contains: "Demonio"
+        entity_type: "PIGLIN_BRUTE"
+        drop_chance: 0.08
+
+  celestial_seraph_staff:
+    offhand_passive: "Emite regeneración sagrada continua (Regeneración I) y Caída Lenta al portarse en la mano secundaria."
+    drop_rules:
+      - custom_mob_id: "seraph_guardian"
+        display_name_contains: "Serafín"
+        entity_type: "ALLAY"
+        drop_chance: 0.15
+
+  dwarven_mithril_pickaxe:
+    offhand_passive: "Otorga Prisa Minera I constante y Visión Nocturna bajo la superficie."
+    drop_rules:
+      - custom_mob_id: "deep_warden"
+        display_name_contains: "Guardián"
+        entity_type: "WARDEN"
+        drop_chance: 0.25
+
+  fairy_dew_amulet:
+    offhand_passive: "Otorga Caída Lenta I y Salto Impulsado I permanentes al llevarse en la mano secundaria."
+    drop_rules:
+      - custom_mob_id: "forest_spirit"
+        display_name_contains: "Hada"
+        entity_type: "BREEZE"
+        drop_chance: 0.15
+
+  elf_sylvan_bow:
+    offhand_passive: "Aumenta la agilidad del portador otorgando Velocidad I en mano secundaria."
+    drop_rules:
+      - custom_mob_id: "sylvan_archer"
+        display_name_contains: "Silvano"
+        entity_type: "STRAY"
+        drop_chance: 0.08
+
+  void_reaper_scythe:
+    offhand_passive: "Concede Visión Nocturna e inmunidad parcial contra Marchitamiento en mano secundaria."
+    drop_rules:
+      - custom_mob_id: "void_dragon"
+        display_name_contains: "Vacío"
+        entity_type: "ENDER_DRAGON"
+        drop_chance: 0.40
+
+  nature_warden_talisman:
+    offhand_passive: "Regenera salud suavemente bajo la luz del día y acelera la fertilidad cercana."
+    drop_rules:
+      - custom_mob_id: "elder_ent"
+        display_name_contains: "Guardián del Bosque"
+        entity_type: "EVOKER"
+        drop_chance: 0.14
+
+  shadow_cloak_brooch:
+    offhand_passive: "Otorga sigilo crepuscular (Velocidad I al agacharse y Visión Nocturna)."
+    drop_rules:
+      - custom_mob_id: "night_stalker"
+        display_name_contains: "Sombrío"
+        entity_type: "PHANTOM"
+        drop_chance: 0.09
+
+  dragon_heart_gem:
+    offhand_passive: "Fortalece la piel con Resistencia I ocasional y resistencia al fuego."
+    drop_rules:
+      - custom_mob_id: "elder_wyrm"
+        display_name_contains: "Dragón"
+        entity_type: "ENDER_DRAGON"
+        drop_chance: 0.50
+
+  cytricos_relic_coin:
+    offhand_passive: "Amuleta de la fortuna que otorga Suerte I permanente al portarse en mano secundaria."
+    drop_rules:
+      - custom_mob_id: "relic_guardian"
+        display_name_contains: "Antiguo"
+        entity_type: "ELDER_GUARDIAN"
+        drop_chance: 0.30

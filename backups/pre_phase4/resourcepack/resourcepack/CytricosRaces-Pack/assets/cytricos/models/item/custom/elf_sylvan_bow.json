@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "cytricos:item/custom/elf_sylvan_bow"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "cytricos:item/custom/dwarven_mithril_pickaxe"
+  }
+}

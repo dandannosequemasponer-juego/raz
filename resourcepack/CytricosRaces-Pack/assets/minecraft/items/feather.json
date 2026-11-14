@@ -1,0 +1,251 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/feather"
+    },
+    "entries": [
+      {
+        "threshold": 20001.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/angel_wings"
+        }
+      },
+      {
+        "threshold": 20002.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/demon_wings"
+        }
+      },
+      {
+        "threshold": 20003.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/vampire_wings"
+        }
+      },
+      {
+        "threshold": 20004.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dragon_wings"
+        }
+      },
+      {
+        "threshold": 20005.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/fairy_wings"
+        }
+      },
+      {
+        "threshold": 20006.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/phoenix_wings"
+        }
+      },
+      {
+        "threshold": 20007.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_wings"
+        }
+      },
+      {
+        "threshold": 20008.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/celestial_wings"
+        }
+      },
+      {
+        "threshold": 20009.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_angel_wings"
+        }
+      },
+      {
+        "threshold": 20010.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/void_wings"
+        }
+      },
+      {
+        "threshold": 20011.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/nature_wings"
+        }
+      },
+      {
+        "threshold": 20101.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/angel_wings_left"
+        }
+      },
+      {
+        "threshold": 20102.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/demon_wings_left"
+        }
+      },
+      {
+        "threshold": 20103.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/vampire_wings_left"
+        }
+      },
+      {
+        "threshold": 20104.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dragon_wings_left"
+        }
+      },
+      {
+        "threshold": 20105.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/fairy_wings_left"
+        }
+      },
+      {
+        "threshold": 20106.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/phoenix_wings_left"
+        }
+      },
+      {
+        "threshold": 20107.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_wings_left"
+        }
+      },
+      {
+        "threshold": 20108.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/celestial_wings_left"
+        }
+      },
+      {
+        "threshold": 20109.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_angel_wings_left"
+        }
+      },
+      {
+        "threshold": 20110.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/void_wings_left"
+        }
+      },
+      {
+        "threshold": 20111.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/nature_wings_left"
+        }
+      },
+      {
+        "threshold": 20201.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/angel_wings_right"
+        }
+      },
+      {
+        "threshold": 20202.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/demon_wings_right"
+        }
+      },
+      {
+        "threshold": 20203.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/vampire_wings_right"
+        }
+      },
+      {
+        "threshold": 20204.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dragon_wings_right"
+        }
+      },
+      {
+        "threshold": 20205.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/fairy_wings_right"
+        }
+      },
+      {
+        "threshold": 20206.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/phoenix_wings_right"
+        }
+      },
+      {
+        "threshold": 20207.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_wings_right"
+        }
+      },
+      {
+        "threshold": 20208.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/celestial_wings_right"
+        }
+      },
+      {
+        "threshold": 20209.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/dark_angel_wings_right"
+        }
+      },
+      {
+        "threshold": 20210.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/void_wings_right"
+        }
+      },
+      {
+        "threshold": 20211.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/nature_wings_right"
+        }
+      },
+      {
+        "threshold": 21005.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/custom/fairy_dew_amulet"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cytricos:item/custom/dragon_heart_gem"
+  }
+}

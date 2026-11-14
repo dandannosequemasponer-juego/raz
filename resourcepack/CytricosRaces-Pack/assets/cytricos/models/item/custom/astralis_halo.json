@@ -1,0 +1,320 @@
+{
+  "credit": "CytricosRaces 7.0.0 - Modelo 3D Aureola Astral",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "0": "cytricos:item/custom/astralis_halo",
+    "particle": "cytricos:item/custom/astralis_halo"
+  },
+  "elements": [
+    {
+      "name": "arco_norte",
+      "from": [
+        4.0,
+        15.0,
+        3.5
+      ],
+      "to": [
+        12.0,
+        16.0,
+        4.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "arco_sur",
+      "from": [
+        4.0,
+        15.0,
+        11.2
+      ],
+      "to": [
+        12.0,
+        16.0,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "arco_oeste",
+      "from": [
+        3.5,
+        15.0,
+        4.8
+      ],
+      "to": [
+        4.8,
+        16.0,
+        11.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "arco_este",
+      "from": [
+        11.2,
+        15.0,
+        4.8
+      ],
+      "to": [
+        12.5,
+        16.0,
+        11.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            3,
+            5,
+            13,
+            9
+          ],
+          "texture": "#0"
+        }
+      }
+    }
+  ],
+  "display": {
+    "head": {
+      "translation": [
+        0,
+        5.0,
+        0
+      ],
+      "scale": [
+        1.35,
+        1.35,
+        1.35
+      ]
+    },
+    "gui": {
+      "rotation": [
+        28,
+        35,
+        0
+      ],
+      "translation": [
+        0,
+        -4.5,
+        0
+      ],
+      "scale": [
+        1.15,
+        1.15,
+        1.15
+      ]
+    }
+  }
+}

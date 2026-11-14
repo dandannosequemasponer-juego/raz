@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/blaze_powder"
+    },
+    "entries": [
+      {
+        "threshold": 20002.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/demon_wings"
+        }
+      },
+      {
+        "threshold": 21011.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/custom/phoenix_ember_ring"
+        }
+      }
+    ]
+  }
+}

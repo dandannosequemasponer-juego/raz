@@ -1,0 +1,105 @@
+# =========================================================
+# CYTRICOS RPG - RACES & RACE CHANGE SYSTEM CONFIGURATION
+# Lead Developers: Dandan_13 & Wolfit12
+# Configuración 100% editable por Admins & Owners
+# =========================================================
+
+general_settings:
+  debug_mode: false
+  save_interval_seconds: 300
+  enable_luckperms_integration: true
+  enable_vault_integration: true
+  default_race: "human"
+
+# =========================================================
+# MOTOR DE ALMACENAMIENTO PERSISTENTE (YAML o MYSQL)
+# =========================================================
+storage:
+  # Tipo de almacenamiento: YAML (archivos individuales en userdata/) o MYSQL (HikariCP)
+  type: "YAML"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "cytricos_races"
+    username: "cytricos"
+    password: "password_segura_123"
+    table_prefix: "cr_"
+    pool:
+      maximum_pool_size: 10
+      minimum_idle: 5
+      connection_timeout: 30000
+      idle_timeout: 600000
+      max_lifetime: 1800000
+
+# =========================================================
+# LÍMITES DE ALTITUD DE VUELO (TECHO MÁGICO)
+# =========================================================
+flight_settings:
+  # Altura máxima en bloques sobre el suelo para Hadas (vuelo místico rasante)
+  fairy_max_height: 16.0
+  # Altura máxima en bloques sobre el suelo para Ángeles (Nivel 3+)
+  angel_max_height: 28.0
+
+# =========================================================
+# AJUSTES DE COMBATE Y HABILIDADES ESPECÍFICAS
+# =========================================================
+vampire_mechanics:
+  solar_damage_tick_interval: 20
+  feeding_chance: 0.35
+  feeding_hunger_restored: 2
+  feeding_saturation_restored: 2.0
+  blood_broth_hunger: 6
+  blood_broth_saturation: 6.0
+
+goblin_theft:
+  cooldown_seconds: 45
+  base_chance: 0.20
+  per_level_chance: 0.05
+  drop_at_feet_on_full_inventory: true
+
+
+race_change_settings:
+  # Estado global del sistema (Modificable por /raza admin cambios parar | iniciar)
+  global_changes_enabled: true
+
+  # Permitir 1 cambio de raza gratuito por jugador (Token inicial)
+  allow_one_free_change: true
+
+  # Sistema de Pago por Economía (Vault Integration)
+  economy_change:
+    enabled: true
+    cost: 50000.0 # Monto en dinero ($) editable in-game por admins
+    currency_symbol: "$"
+
+  # Sistema de Cambio por Objeto Especial con Lore Custom
+  custom_item_change:
+    enabled: true
+    consume_item_on_use: true
+    item_spec:
+      material: "NETHER_STAR"
+      custom_model_data: 10099
+      display_name: "&6&lEsencia de Reencarnación Ancestral"
+      lore:
+        - "&7Este artefacto sagrado permite moldear"
+        - "&7tu linaje físico y alma mística."
+        - ""
+        - "&e&lUSO ÚNICO:"
+        - "&aPermite cambiar de Raza 1 vez en /razas."
+        - ""
+        - "&c&lEXCLUSIVO CYTRICOS RPG - ITEM ADMINISTRATIVO"
+      glow: true
+
+messages:
+  prefix: "&8[&eCYTRICOS&8] "
+  changes_paused: "&c&l[CYTRICOS] &7El sistema de cambios de raza se encuentra pausado temporalmente por la administración."
+  free_change_used: "&a&l[CYTRICOS] &7¡Has utilizado tu cambio de raza gratuito único!"
+  paid_change_success: "&a&l[CYTRICOS] &7Cambio de raza realizado con éxito por &e$%cost%&7."
+  item_change_success: "&a&l[CYTRICOS] &7Has entregado tu &6Esencia de Reencarnación &7y cambiado de raza."
+  no_funds_or_item: "&c&l[CYTRICOS] &7No posees el cambio gratuito, ni el dinero suficiente ($%cost%), ni el Objeto Especial."
+  already_in_race: "&cYa perteneces a esta raza."
+  race_changed: "&e&l[CYTRICOS] &7Tu raza ha sido cambiada a: &a%race%"
+  level_up_success: "&a&l[CYTRICOS] &7¡Has ascendido al Nivel %level% de %race%!"
+  level_max: "&e&l[CYTRICOS] &7Ya te encuentras en el nivel máximo legendario."
+  insufficient_reqs: "&c&l[CYTRICOS] &7No cumples con los requisitos de materiales o dinero ($%cost%) para ascender."
+  not_found_player: "&cJugador no encontrado."
+  no_permission: "&cNo tienes permisos para ejecutar este comando."

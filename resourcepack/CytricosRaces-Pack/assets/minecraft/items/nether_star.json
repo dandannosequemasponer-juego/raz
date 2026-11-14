@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/nether_star"
+    },
+    "entries": [
+      {
+        "threshold": 10099.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/custom/reincarnation_essence"
+        }
+      },
+      {
+        "threshold": 20008.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/wings/celestial_wings"
+        }
+      }
+    ]
+  }
+}

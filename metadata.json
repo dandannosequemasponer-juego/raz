@@ -1,0 +1,8 @@
+{
+  "name": "CYTRICOSRAZAS",
+  "description": "Production-ready Spigot/Paper 1.20.5+ Minecraft Java plugin source code, dynamic in-game GUI editor, 16 RPG races with physical scaling, 6 progression levels, and GitHub build pipeline for CYTRICOS RPG.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

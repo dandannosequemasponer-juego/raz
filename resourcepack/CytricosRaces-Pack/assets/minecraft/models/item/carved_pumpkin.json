@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/carved_pumpkin"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 21007
+      },
+      "model": "cytricos:item/custom/celestial_crown"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 21014
+      },
+      "model": "cytricos:item/custom/astralis_halo"
+    }
+  ]
+}

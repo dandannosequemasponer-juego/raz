@@ -1,0 +1,996 @@
+# ===================================================================
+# CYTRICOS RPG - RACES REPOSITORY & LEVEL PROGRESSION CONFIG (v7.0)
+# Lead Developers: Dandan_13 & Wolfit12
+# Compatible: Spigot / Paper 1.20.5+ / 1.21 (Attribute.GENERIC_SCALE)
+# ===================================================================
+
+races:
+  # ROW 0 (Slots 0-8)
+  # Slots 0, 1, 2: black_stained_glass_pane
+  # Slot 3: Enano (Dwarf)
+  dwarf:
+    display_name: "&6&lEnano"
+    material: "ANVIL"
+    slot: 3
+    scale: 0.75
+    base_health_hearts: 13.0
+    base_speed_mult: 0.85
+    base_damage_mult: 1.15
+    immunities: ["knockback"]
+    vulnerabilities: ["short_jump", "drowning_speed"]
+    levels:
+      1:
+        name: "Picapedrero"
+        subprefix: "&8[&7Picapedrero&8]"
+        perks: "Hitbox reducida (0.75). Visión nocturna bajo Y=60 Minería II en cuevas."
+        disadvantages: "-15% velocidad de movimiento por extremidades cortas."
+        required_item: "RAW_IRON"
+        required_item_amount: 64
+        cost_money: 1000.0
+      2:
+        name: "Minero"
+        subprefix: "&8[&7Minero&8]"
+        perks: "15% probabilidad de doble mineral. +3 corazones de vida. Armaduras duran +50%."
+        disadvantages: "Capacidad de salto reducida (no salta 1.5b)."
+        required_item: "COBBLESTONE"
+        required_item_amount: 32
+        cost_money: 5000.0
+      3:
+        name: "Forjador"
+        subprefix: "&8[&6&lForjador&8]"
+        perks: "Descuento del 30% en combinación de yunque y reparación de herramientas."
+        disadvantages: "Se hunde rápido en agua y gasta el doble de aire."
+        required_item: "IRON_BLOCK"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Bastión"
+        subprefix: "&8[&eBastión&8]"
+        perks: "Inmunidad total a empuje (Knockback). Activa 'Piel de Piedra' (6s inmune a flechas)."
+        disadvantages: "+20% daño por caída por alta densidad física."
+        required_item: "OBSIDIAN"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Mountain Lord"
+        subprefix: "&8[&8Mountain Lord&8]"
+        perks: "Escudos no pierden durabilidad. Martillos y picos ignoran 30% de armadura."
+        disadvantages: "Incapaz de volar con Elytras (causa Slowness masivo)."
+        required_item: "ANVIL"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "King of Deeps"
+        subprefix: "&8[&6&lKING OF DEEPS&8]"
+        perks: "'Coloso de Titanio' (15s inmune a fuego/lava/expl, +40% daño). Furia de la Montaña y Runa de Incondicionalidad."
+        disadvantages: "Nivel Máximo. Resistencia forjada en roca."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 4: Humano (Human)
+  human:
+    display_name: "&e&lHumano"
+    material: "PLAYER_HEAD"
+    slot: 4
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.00
+    base_damage_mult: 1.00
+    immunities: []
+    vulnerabilities: []
+    levels:
+      1:
+        name: "Aprendiz"
+        subprefix: "&8[&7Aprendiz&8]"
+        perks: "+10% XP global en todas las actividades. Adaptación rápida."
+        disadvantages: "Sin bonificaciones físicas exclusivas de inicio."
+        required_item: "WHEAT"
+        required_item_amount: 32
+        cost_money: 500.0
+      2:
+        name: "Artesano"
+        subprefix: "&8[&7Artesano&8]"
+        perks: "Sin penalizaciones al usar cualquier tipo de equipo; -15% precios en tiendas."
+        disadvantages: "Atributos estándar balanceados."
+        required_item: "IRON_INGOT"
+        required_item_amount: 16
+        cost_money: 2500.0
+      3:
+        name: "Maestro"
+        subprefix: "&8[&9Maestro&8]"
+        perks: "Doble durabilidad en herramientas y armaduras crafteadas."
+        disadvantages: "Requiere mantenimiento constante de equipo."
+        required_item: "DIAMOND"
+        required_item_amount: 8
+        cost_money: 10000.0
+      4:
+        name: "Vanguardia"
+        subprefix: "&8[&9Vanguardia&8]"
+        perks: "Mochila táctica (9 slots extras) y casilla offhand activa con buffs."
+        disadvantages: "Sensibilidad normal a efectos de estado."
+        required_item: "EMERALD"
+        required_item_amount: 1
+        cost_money: 30000.0
+      5:
+        name: "Campeón"
+        subprefix: "&8[&3Campeón&8]"
+        perks: "+15% daño general y +10% resistencia a todo tipo de impacto."
+        disadvantages: "Consumo estándar de alimento."
+        required_item: "GOLD_BLOCK"
+        required_item_amount: 3
+        cost_money: 75000.0
+      6:
+        name: "Leyenda Rúnica"
+        subprefix: "&8[&6LEYENDA RÚNICA&8]"
+        perks: "Runas de transporte rápido y +40% daño crítico. Sobrecarga de Adrenalina y Escudo Rúnico."
+        disadvantages: "Nivel Máximo. Versatilidad humana perfecta."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 5: Elfo (Elf)
+  elf:
+    display_name: "&a&lElfo"
+    material: "BOW"
+    slot: 5
+    scale: 1.00
+    base_health_hearts: 9.0
+    base_speed_mult: 1.10
+    base_damage_mult: 1.15
+    immunities: []
+    vulnerabilities: ["low_health", "fire_damage"]
+    levels:
+      1:
+        name: "Scout"
+        subprefix: "&8[&aScout&8]"
+        perks: "+15% daño con arcos y velocidad de movimiento aumentada sobre hojas."
+        disadvantages: "-10% vida máxima base (9 corazones)."
+        required_item: "FEATHER"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Cazador"
+        subprefix: "&8[&aCazador&8]"
+        perks: "Visión nocturna permanente y capacidad de salto incrementada (1.5b)."
+        disadvantages: "Menor resistencia a golpes cuerpo a cuerpo pesados."
+        required_item: "OAK_LOG"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Archienchanter"
+        subprefix: "&8[&aArchienchanter&8]"
+        perks: "Flechas curativas para aliados e imbuición de viento en disparos."
+        disadvantages: "Requiere espacio abierto para mantener movilidad."
+        required_item: "EMERALD"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Guardián Silvano"
+        subprefix: "&8[&2GuardianSilvano&8]"
+        perks: "Levitación controlada por 10s y sigilo perfecto en biomas forestales."
+        disadvantages: "Armaduras pesadas cancelan la levitación."
+        required_item: "GHAST_TEAR"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Señor del Bosque"
+        subprefix: "&8[&2SeñorBosque&8]"
+        perks: "Flechas ignoran el 30% de la armadura enemiga."
+        disadvantages: "Recibe +15% daño de fuego."
+        required_item: "HEART_OF_THE_SEA"
+        required_item_amount: 1
+        cost_money: 100000.0
+      6:
+        name: "Señor Silvano"
+        subprefix: "&8[&2SEÑOR SILVANO&8]"
+        perks: "Escudo eólico defensivo y ráfagas continuas de 3 flechas. Remolino de Viento y Flecha Buscadora."
+        disadvantages: "Nivel Máximo. Arquería silvana suprema."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # ROW 1 (Slots 9-17)
+  # Slots 9, 10: black_stained_glass_pane
+  # Slot 11: Gigante (Giant)
+  giant:
+    display_name: "&6&lGigante"
+    material: "MACE"
+    slot: 11
+    scale: 1.35
+    base_health_hearts: 16.0
+    base_speed_mult: 0.75
+    base_damage_mult: 1.40
+    immunities: ["knockback"]
+    vulnerabilities: ["arrow_damage", "tunnel_restriction"]
+    levels:
+      1:
+        name: "Alto"
+        subprefix: "&8[&7Alto&8]"
+        perks: "Incremento físico pasivo. Alcance de golpe aumentado (+1b)."
+        disadvantages: "Hitbox (1.15). Incapaz de entrar en túneles 1x2."
+        required_item: "STONE"
+        required_item_amount: 64
+        cost_money: 1000.0
+      2:
+        name: "Fuerza"
+        subprefix: "&8[&6Fuerza&8]"
+        perks: "+4 de vida extra. Ignora el 15% del empuje enemigo."
+        disadvantages: "Slowness I permanente. Consumo rápido de hambre."
+        required_item: "IRON_INGOT"
+        required_item_amount: 32
+        cost_money: 5000.0
+      3:
+        name: "Titán"
+        subprefix: "&8[&c&lTitán&8]"
+        perks: "Hitbox (1.25). Pisotón Titánico: Eleva enemigos a 5b por los aires."
+        disadvantages: "-25% velocidad de movimiento base."
+        required_item: "DIAMOND_BLOCK"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Coloso"
+        subprefix: "&8[&6&lColoso&8]"
+        perks: "+8 de vida extra. Rompe bloques blandos al embestir."
+        disadvantages: "Recibe +30% daño de flechas lejanas."
+        required_item: "DEEPSLATE"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Goliath"
+        subprefix: "&8[&4&lGoliath&8]"
+        perks: "Hitbox (1.35). Inmunidad total a stun y empuje por 10s."
+        disadvantages: "No puede usar botes ni caballos."
+        required_item: "ANVIL"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Titan Supreme"
+        subprefix: "&8[&c&kI&6&lTITAN SUPREME&c&kI&8]"
+        perks: "Forma de Coloso Ancestral. Incremento masivo de vida (+12) y potencia. Impacto Telúrico y Muro de Roca."
+        disadvantages: "Nivel Máximo. Control de masa y dominación física."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 12: Orco (Orc)
+  orc:
+    display_name: "&4&lOrco"
+    material: "PIGLIN_HEAD"
+    slot: 12
+    scale: 1.20
+    base_health_hearts: 14.0
+    base_speed_mult: 0.90
+    base_damage_mult: 1.25
+    immunities: ["slowness", "weakness"]
+    vulnerabilities: ["hunger_drain", "bow_restriction"]
+    levels:
+      1:
+        name: "Bruto"
+        subprefix: "&8[&2Bruto&8]"
+        perks: "+4 corazones base. Ataques con hacha ignoran 25% de armadura."
+        disadvantages: "-10% velocidad de movimiento base."
+        required_item: "BONE"
+        required_item_amount: 64
+        cost_money: 1000.0
+      2:
+        name: "Destructor"
+        subprefix: "&8[&2Destructor&8]"
+        perks: "Pasiva 'Furia Sangrienta' (+50% daño físico al estar bajo de vida)."
+        disadvantages: "Hitbox (1.20) incrementada."
+        required_item: "IRON_INGOT"
+        required_item_amount: 32
+        cost_money: 5000.0
+      3:
+        name: "Guerrero"
+        subprefix: "&8[&4Guerrero&8]"
+        perks: "Grito de Guerra (otorga incremento de daño y resistencia a aliados a 8b)."
+        disadvantages: "Incapaz de usar arcos o ballestas con precisión."
+        required_item: "COAL_BLOCK"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Behemoth"
+        subprefix: "&8[&cBehemoth&8]"
+        perks: "Golpe Sísmico con Hacha (genera onda expansiva de empuje a 5b)."
+        disadvantages: "El hambre cae 30% más rápido durante combate."
+        required_item: "BLAZE_ROD"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Señor de Guerra"
+        subprefix: "&8[&4SeñorDeGuerra&8]"
+        perks: "Inmune a efectos de lentitud y debilidad. +25% daño adicional con hachas."
+        disadvantages: "No puede utilizar élitros."
+        required_item: "NETHERITE_SCRAP"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Señor de la Guerra"
+        subprefix: "&8[&4SEÑOR DE LA GUERRA&8]"
+        perks: "'Furia Inquebrantable' (5s invulnerable al caer bajo 20% vida). Imbuir en Magma y Escudo de Ceniza."
+        disadvantages: "Nivel Máximo. Control de masas y fuerza bruta."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 13: Duende / Goblin
+  goblin:
+    display_name: "&a&lDuende / Goblin"
+    material: "GREEN_BUNDLE"
+    slot: 13
+    scale: 0.60
+    base_health_hearts: 7.0
+    base_speed_mult: 1.25
+    base_damage_mult: 0.90
+    immunities: []
+    vulnerabilities: ["low_health", "melee_reach"]
+    levels:
+      1:
+        name: "Pilluelo"
+        subprefix: "&8[&aPilluelo&8]"
+        perks: "Hitbox reducida (0.60), extremadamente difícil de golpear."
+        disadvantages: "-30% de alcance de golpe cuerpo a cuerpo."
+        required_item: "GOLD_NUGGET"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Trampero"
+        subprefix: "&8[&aTrampero&8]"
+        perks: "Colocación instantánea de trampas y descuento del 20% en recetas/crafteos."
+        disadvantages: "Vida máxima reducida a 7 corazones."
+        required_item: "REDSTONE"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Astuto"
+        subprefix: "&8[&aAstuto&8]"
+        perks: "Probabilidad del 15% de robar ítems de la hotbar enemiga al golpear."
+        disadvantages: "No puede equipar armaduras de Netherite."
+        required_item: "GOLD_INGOT"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Saqueador"
+        subprefix: "&8[&2Saqueador&8]"
+        perks: "Velocidad de movimiento +25% al llevar la mano secundaria libre."
+        disadvantages: "Recibe +25% daño de ataques pesados."
+        required_item: "BUNDLE"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Artesano"
+        subprefix: "&8[&aArtesano&8]"
+        perks: "Descuento del 40% en forja, encantamientos y crafteos del servidor."
+        disadvantages: "Lentitud si carga con inventario lleno."
+        required_item: "EMERALD"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Reduende"
+        subprefix: "&8[&2REDUENDE&8]"
+        perks: "Modo Escurridizo (Invisibilidad total y velocidad explosiva por 5s). Trampa de Redstone y Emboscada."
+        disadvantages: "Nivel Máximo. Astucia y evasión diminuta."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 14: Demonio / Oni (Demon)
+  demon:
+    display_name: "&c&lDemonio / Oni"
+    material: "END_CRYSTAL"
+    slot: 14
+    scale: 1.10
+    base_health_hearts: 12.0
+    base_speed_mult: 1.05
+    base_damage_mult: 1.20
+    immunities: ["fire", "lava"]
+    vulnerabilities: ["water_weakness", "holy_vulnerability"]
+    levels:
+      1:
+        name: "Imp"
+        subprefix: "&8[&cImp&8]"
+        perks: "Resistencia al Fuego I. Golpes físicos aplican Fuego Abisal."
+        disadvantages: "El agua o la lluvia le otorgan Debilidad I."
+        required_item: "QUARTZ"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Cornudo"
+        subprefix: "&8[&cCornudo&8]"
+        perks: "+2 corazones de vida extra. Embestida frontal con cuernos."
+        disadvantages: "Armadura de oro se rompe el doble de rápido."
+        required_item: "BLAZE_ROD"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Devastador"
+        subprefix: "&8[&4Devastador&8]"
+        perks: "Incremento físico pasivo. Ataques rompen escudos un 25%."
+        disadvantages: "+20% daño recibido de armas benditas/sagradas."
+        required_item: "MAGMA_CREAM"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Oni"
+        subprefix: "&8[&c&lOni&8]"
+        perks: "Hitbox 1.10. Activa: Explosión de Azufre en área (4b)."
+        disadvantages: "Pociones de sanación le restan saturación."
+        required_item: "SOUL_SAND"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Abyssal"
+        subprefix: "&8[&4&lAbyssal&8]"
+        perks: "Aura de Corrupción (aplica fuego continuo DoT a enemigos a 3b)."
+        disadvantages: "Slowness I al pisar agua profunda."
+        required_item: "LAVA_BUCKET"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Demon King"
+        subprefix: "&8[&4&kI&c&lDEMON KING&4&kI&8]"
+        perks: "Inmunidad total a fuego/lava. Convierte suelo en lava 5s. Dominio Infernal y Explosión de Azufre."
+        disadvantages: "Nivel Máximo. Habilidades físicas abisales completas."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 15: Celestial / Ángel (Angel)
+  angel:
+    display_name: "&f&lCelestial / Ángel"
+    material: "NETHER_STAR"
+    slot: 15
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.10
+    base_damage_mult: 1.10
+    immunities: ["fall_damage"]
+    vulnerabilities: ["darkness_vulnerability", "dark_potions"]
+    levels:
+      1:
+        name: "Creyente"
+        subprefix: "&8[&fCreyente&8]"
+        perks: "Halo luminoso emisor de luz, Regeneración I bajo la luz del sol."
+        disadvantages: "-10% resistencia a proyectiles oscuros."
+        required_item: "FEATHER"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Querubín"
+        subprefix: "&8[&fQuerubín&8]"
+        perks: "Inmune al daño por caída. Despliegue de plumas protectoras."
+        disadvantages: "Recibe +20% daño en la oscuridad total."
+        required_item: "GLOWSTONE_DUST"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Serafín"
+        subprefix: "&8[&fSerafín&8]"
+        perks: "Despliega Alas: Vuelo controlado continuo sin necesidad de Elytra."
+        disadvantages: "No equipa pectorales pesados al volar."
+        required_item: "QUARTZ"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Arcángel"
+        subprefix: "&8[&eArcángel&8]"
+        perks: "Aura Radiante (curación constante a aliados en un radio de 6b)."
+        disadvantages: "Mayor consumo de alimento durante el vuelo."
+        required_item: "SUNFLOWER"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Santo"
+        subprefix: "&8[&fSanto&8]"
+        perks: "Escudo de Luz (absorbe hasta 6 corazones de daño entrante)."
+        disadvantages: "Incapaz de utilizar pociones de oscuridad."
+        required_item: "BEACON"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Arcangel Supremo"
+        subprefix: "&8[&e&lARCANGEL SUPREMO&8]"
+        perks: "Inmunidad temporal + Sanación total instantánea. Juicio Radiante y Bendición Divina."
+        disadvantages: "Nivel Máximo. Purificación física suprema."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # ROW 2 (Slots 18-26)
+  # Slot 18: black_stained_glass_pane
+  # Slot 19: Dragonkin / Lagarto
+  dragonkin:
+    display_name: "&2&lDragonkin / Lagarto"
+    material: "DRAGON_HEAD"
+    slot: 19
+    scale: 1.10
+    base_health_hearts: 12.0
+    base_speed_mult: 0.95
+    base_damage_mult: 1.15
+    immunities: ["fire", "lava"]
+    vulnerabilities: ["cold_slowness", "armor_fragility"]
+    levels:
+      1:
+        name: "Escama"
+        subprefix: "&8[&2Escama&8]"
+        perks: "+2 corazones de vida. Resistencia innata al fuego y lava."
+        disadvantages: "Lentitud III al nadar en agua fría o biomas nevados."
+        required_item: "SCUTE"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Guerrero Draco"
+        subprefix: "&8[&2GuerreroDraco&8]"
+        perks: "Cola defensiva (empuje frontal hacia atrás a enemigos en sigilo)."
+        disadvantages: "-10% velocidad por peso de escamas."
+        required_item: "PHANTOM_MEMBRANE"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Señor Draco"
+        subprefix: "&8[&c&lSeñor Draco&2]"
+        perks: "Activa: 'Aliento de Fuego' (cono de llamas continuo por 4s)."
+        disadvantages: "Armaduras de hierro/oro se rompen 20% más rápido."
+        required_item: "MAGMA_BLOCK"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Archidraco"
+        subprefix: "&8[&6Archidraco&8]"
+        perks: "Alas dracónicas (planeo avanzado y saltos elevados)."
+        disadvantages: "Hitbox superior no permite cascos sin perder vuelo."
+        required_item: "DRAGON_BREATH"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Wyrm Master"
+        subprefix: "&8[&6Wyrm Master&8]"
+        perks: "Escamas pasivas (+4 armadura natural). Inmune a empuje (Knockback)."
+        disadvantages: "Hitbox aumentada facilita impactos a distancia."
+        required_item: "ENDER_EYE"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Draconis Rex"
+        subprefix: "&8[&4&kI&6&lDRACONIS REX&4&kI&8]"
+        perks: "+8 corazones extra, inmune a explosiones, rugido rompe escudos. Rugido de Trueno y Esfera de Plasma."
+        disadvantages: "Nivel Máximo. Dominio draconiano elemental."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 20: Beastkin / Demihumano
+  beastkin:
+    display_name: "&6&lBeastkin / Demihumano"
+    material: "TOTEM_OF_UNDYING"
+    slot: 20
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.15
+    base_damage_mult: 1.10
+    immunities: []
+    vulnerabilities: ["bow_restriction", "energy_vulnerability"]
+    levels:
+      1:
+        name: "Bestia"
+        subprefix: "&8[&7Bestia&8]"
+        perks: "Olfato desarrollado (detecta partículas de jugadores agachados a 8b)."
+        disadvantages: "Incapaz de usar arcos complejos (desvía flechas, solo ballestas)."
+        required_item: "RABBIT_HIDE"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Depredador"
+        subprefix: "&8[&7Depredador&8]"
+        perks: "Escalada de paredes natural (trepa muros como escaleras)."
+        disadvantages: "El hambre cae 25% más rápido."
+        required_item: "BONE"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Coloso"
+        subprefix: "&8[&6Coloso&8]"
+        perks: "Especialización física: Oso (+vida), Tigre (+daño), Zorro (+evasión)."
+        disadvantages: "Comercio con aldeanos 30% más caro."
+        required_item: "BLAZE_POWDER"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Monarca Feral"
+        subprefix: "&8[&aMonarcaFeral&8]"
+        perks: "Animales salvajes no lo atacan y combaten a su lado al ser agredido."
+        disadvantages: "+15% daño recibido de ataques de energía/efectos."
+        required_item: "TOTEM_OF_UNDYING"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Apex Beast"
+        subprefix: "&8[&aApex Beast&8]"
+        perks: "+30% velocidad de carrera. Triple salto en el aire."
+        disadvantages: "No equipa Netherite completa sin perder agilidad."
+        required_item: "GOLDEN_APPLE"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Overlord"
+        subprefix: "&8[&2OVERLORD&8]"
+        perks: "Bestia Totémica Suprema (45s): Fuerza física, Regen II, inmunidades. Carrera de Gacela y Zarpazo Sísmico."
+        disadvantages: "Nivel Máximo. Agilidad bestial suprema."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 21: Hombre Lobo (Werewolf)
+  werewolf:
+    display_name: "&c&lHombre Lobo"
+    material: "WOLF_SPAWN_EGG"
+    slot: 21
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.15
+    base_damage_mult: 1.10
+    immunities: []
+    vulnerabilities: ["silver_damage", "cooked_food_nausea"]
+    levels:
+      1:
+        name: "Cachorro"
+        subprefix: "&8[&7Cachorro&8]"
+        perks: "+15% vel. movimiento, consume carne cruda sin náuseas/envenenamiento."
+        disadvantages: "Comida cocinada causa náuseas. -20% daño con armadura pesada."
+        required_item: "MUTTON"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Acechador"
+        subprefix: "&8[&7Acechador&8]"
+        perks: "Doble salto (parkour), garras afiladas (+2 corazones daño sin armas)."
+        disadvantages: "En luna llena: Fiebre de Sangre (efecto visual de frenesí)."
+        required_item: "LEATHER"
+        required_item_amount: 64
+        cost_money: 5000.0
+      3:
+        name: "Alfa"
+        subprefix: "&8[&4Alfa&8]"
+        perks: "Activa: 'Rugido Aterrador' (Lentitud a enemigos a 10b). Regen nocturna."
+        disadvantages: "+30% daño recibido de armas de plata/hierro puro."
+        required_item: "IRON_INGOT"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Bestia"
+        subprefix: "&8[&c&lBestia&8]"
+        perks: "Transformación Bestia (30s): Inmune a fuego, fuerza física, rompe escudos."
+        disadvantages: "Doble gasto de hambre al correr en forma bestial."
+        required_item: "NETHER_STAR"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Horror"
+        subprefix: "&8[&4&lHorror&8]"
+        perks: "Ataques aplican sangrado acumulativo (3 marcas). Inmunidad a fuego."
+        disadvantages: "Pociones curativas efectivas solo al 50%."
+        required_item: "DRAGON_BREATH"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Fenrir"
+        subprefix: "&8[&4&k||&c&lFENRIR&4&k||&8]"
+        perks: "Licántropo Supremo. Ignora 50% armadura. Visión térmica 20b. Zarpa Espectral y Caza Nocturna."
+        disadvantages: "Nivel Máximo. Dominio físico depredador."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 22: Vampiro (Vampire)
+  vampire:
+    display_name: "&5&lVampiro"
+    material: "REDSTONE"
+    slot: 22
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.05
+    base_damage_mult: 1.05
+    immunities: ["poison", "drowning"]
+    vulnerabilities: ["sunlight_burn", "rain_corrosion"]
+    levels:
+      1:
+        name: "Fledgling"
+        subprefix: "&8[&5Fledgling&8]"
+        perks: "Inmune a veneno y ahogamiento. Se cura al eliminar mobs."
+        disadvantages: "Luz solar directa causa quemaduras. No consume comida sólida."
+        required_item: "REDSTONE"
+        required_item_amount: 64
+        cost_money: 1000.0
+      2:
+        name: "Nocturno"
+        subprefix: "&8[&5Nocturno&8]"
+        perks: "Transformación en Murciélago (vuelo rápido, vida reducida a 2 corazones)."
+        disadvantages: "Lluvia causa daño por corrosión mística."
+        required_item: "AMETHYST_SHARD"
+        required_item_amount: 32
+        cost_money: 5000.0
+      3:
+        name: "Lord"
+        subprefix: "&8[&5&lLord&5]"
+        perks: "Murciélago Gigante (transporte de ítems). Robo de vida pasivo 15%."
+        disadvantages: "Daño solar duplicado sin casco o sombrilla."
+        required_item: "POTION"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Drácula"
+        subprefix: "&8[&4Drácula&5]"
+        perks: "Inmunidad parcial a sol (solo Slowness). Teletransporte a sombras (15b)."
+        disadvantages: "Recibe el doble de daño de fuego o ascuas."
+        required_item: "GHAST_TEAR"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Nosferatu"
+        subprefix: "&8[&5Nosferatu&8]"
+        perks: "Drena estamina/energía enemiga. Regeneración acelerada en oscuridad."
+        disadvantages: "Bloques iluminados con redstone/fanales bajan velocidad 40%."
+        required_item: "WITHER_ROSE"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Imperator Sanguis"
+        subprefix: "&8[&4&lIMPERATOR SANGUIS&8]"
+        perks: "Inmunidad total al sol. Señor de la Niebla (invulnerable 8s). Enjambre de Murciélagos y Paso de Niebla."
+        disadvantages: "Nivel Máximo. Control sanguíneo absoluto."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 23: Zombi / No-Muerto (Undead)
+  undead:
+    display_name: "&2&lZombi / No-Muerto"
+    material: "WITHER_SKELETON_SKULL"
+    slot: 23
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.00
+    base_damage_mult: 1.05
+    immunities: ["poison", "instant_damage"]
+    vulnerabilities: ["healing_potion_damage", "smite_weakness"]
+    levels:
+      1:
+        name: "Caminante"
+        subprefix: "&8[&7Caminante&8]"
+        perks: "Barra de hambre congelada. Inmune a veneno y daño instantáneo."
+        disadvantages: "Pociones de sanación le causan daño directo."
+        required_item: "ROTTEN_FLESH"
+        required_item_amount: 64
+        cost_money: 1000.0
+      2:
+        name: "Devorador"
+        subprefix: "&8[&7Devorador&8]"
+        perks: "Absorción de vida al consumir carne podrida fresca."
+        disadvantages: "Velocidad de nado reducida 30% por absorción."
+        required_item: "FERMENTED_SPIDER_EYE"
+        required_item_amount: 32
+        cost_money: 5000.0
+      3:
+        name: "Señor Zombi"
+        subprefix: "&8[&2Señor Zombi&8]"
+        perks: "Ataque con mano vacía roba experiencia u otorga náuseas al rival. Activa: 'Ejército de la Tumba'."
+        disadvantages: "Debilidad extrema a encantamiento Castigo/Smite (daño x2)."
+        required_item: "SOUL_SAND"
+        required_item_amount: 16
+        cost_money: 15000.0
+      4:
+        name: "Lich"
+        subprefix: "&8[&bLich&8]"
+        perks: "Filacteria Portátil (al morir conserva 50% inventario/XP, 30m CD)."
+        disadvantages: "+25% daño de proyectiles de flechas sagradas."
+        required_item: "GLASS_BOTTLE"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Necrolord"
+        subprefix: "&8[&3Necrolord&8]"
+        perks: "Aura de descomposición pasiva (Lentitud y hambre a 4b)."
+        disadvantages: "Solo consume carne podrida o pociones oscuras."
+        required_item: "WITHER_SKELETON_SKULL"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Archilich"
+        subprefix: "&8[&2ARCHILICH&8]"
+        perks: "Revive instantáneamente al morir con 50% vida (1h CD). Inmune a Smite. Plaga Pestilente y Toque Gélido."
+        disadvantages: "Nivel Máximo. Inmortalidad necrótica."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 24: Druida Cítrico / Planta (Cytricos Druid)
+  druid:
+    display_name: "&e&lDruida Cítrico / Planta"
+    material: "GOLDEN_APPLE"
+    slot: 24
+    scale: 1.00
+    base_health_hearts: 10.0
+    base_speed_mult: 1.00
+    base_damage_mult: 1.00
+    immunities: ["poison"]
+    vulnerabilities: ["meat_nausea", "desert_slowness"]
+    levels:
+      1:
+        name: "Brote"
+        subprefix: "&8[&eBrote&8]"
+        perks: "Doble nivel de saturación al consumir frutas. Rechaza carne (causa náuseas)."
+        disadvantages: "Slowness en biomas desérticos o sin luz."
+        required_item: "APPLE"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Arboleda"
+        subprefix: "&8[&eArboleda&8]"
+        perks: "Crecimiento de cultivos +50% rápido alrededor. Daño de veneno reflejado."
+        disadvantages: "-10% velocidad de movimiento sobre piedra."
+        required_item: "OAK_SAPLING"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Archidruida"
+        subprefix: "&8[&a&lArchidruida&e]"
+        perks: "Explosión Vitamínica (cura 4 corazones en área a aliados cercanos)."
+        disadvantages: "Vulnerable a ataques directos de fuego (+25% daño)."
+        required_item: "GLISTERING_MELON_SLICE"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Cytrico"
+        subprefix: "&8[&eCYTRICO&8]"
+        perks: "Inmune a veneno. Aplica efecto 'Ácido Cítrico' (-20% defensa al objetivo)."
+        disadvantages: "Requiere mantenerse hidratado (agua o zumos)."
+        required_item: "PUMPKIN_SEEDS"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Citrus Overlord"
+        subprefix: "&8[&aCitrus Overlord&8]"
+        perks: "Fertilidad natural a 16b. Regeneración acelerada bajo la luz solar."
+        disadvantages: "Armaduras pesadas reducen curación en 30%."
+        required_item: "GOLDEN_CARROT"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Master Deity"
+        subprefix: "&8[&e&lMASTER DEITY&8]"
+        perks: "Formación Frutal (Bombas de Zumo continuas sin cooldown). Bomba de Jugo Gaseoso y Crecimiento Espinado."
+        disadvantages: "Nivel Máximo. Botánica cítrica absoluta."
+        required_item: "ENCHANTED_GOLDEN_APPLE"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # Slot 25: Hada (Fairy)
+  fairy:
+    display_name: "&d&lHada"
+    material: "PRISMARINE_CRYSTALS"
+    slot: 25
+    scale: 0.50
+    base_health_hearts: 6.0
+    base_speed_mult: 1.25
+    base_damage_mult: 0.75
+    immunities: ["fall_damage"]
+    vulnerabilities: ["low_health", "water_slowness"]
+    levels:
+      1:
+        name: "Chispa"
+        subprefix: "&8[&dChispa&8]"
+        perks: "Vuelo libre pasivo, Hitbox muy reducida (0.50)."
+        disadvantages: "Vida máxima inicial reducida a 6 corazones."
+        required_item: "GLOWSTONE_DUST"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Lucérnaga"
+        subprefix: "&8[&dLucérnaga&8]"
+        perks: "Inmune al daño por caída. Invisibilidad estática al agacharse (3s)."
+        disadvantages: "Vulnerable a golpes en área e impactos lejanos."
+        required_item: "PRISMARINE_SHARD"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Esencia"
+        subprefix: "&8[&dEsencia&8]"
+        perks: "Efectividad de sanación duplicada. Revive aliados en combate (1h CD)."
+        disadvantages: "No puede utilizar escudos ni armadura pesada."
+        required_item: "SUGAR"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Ninfa"
+        subprefix: "&8[&5Ninfa&8]"
+        perks: "Aura radiante pasiva de regeneración en área para el equipo."
+        disadvantages: "Fuerza de ataque físico reducida un 25%."
+        required_item: "AMETHYST_CLUSTER"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Espíritu Feérico"
+        subprefix: "&8[&5EspírituFeérico&8]"
+        perks: "+40% velocidad de vuelo. Efectos de pociones duran el doble."
+        disadvantages: "Slowness severo si entra en agua profunda."
+        required_item: "SEA_LANTERN"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Reina Feérica"
+        subprefix: "&8[&5REINA FEÉRICA&8]"
+        perks: "Campo de absorción de daño masivo para el clan (12b). Polvo de Confusión y Espejismo Ilusorio."
+        disadvantages: "Nivel Máximo. Dominio feérico etéreo."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # ROW 3 (Slots 27-35)
+  # Slots 27, 28, 29, 30: black_stained_glass_pane
+  # Slot 31: Espíritu / Yokai (Soul Lantern)
+  # Slots 32, 33, 34, 35: black_stained_glass_pane
+  yokai:
+    display_name: "&b&lEspíritu / Yokai"
+    material: "SOUL_LANTERN"
+    slot: 31
+    scale: 1.00
+    base_health_hearts: 8.0
+    base_speed_mult: 1.10
+    base_damage_mult: 1.00
+    immunities: ["drowning", "suffocation", "slowness"]
+    vulnerabilities: ["low_health", "beacon_blindness"]
+    levels:
+      1:
+        name: "Ánima"
+        subprefix: "&8[&bÁnima&8]"
+        perks: "Caída Lenta I pasiva. Inmune a trampas de lentitud."
+        disadvantages: "-20% vida máxima (8 corazones total)."
+        required_item: "PHANTOM_MEMBRANE"
+        required_item_amount: 32
+        cost_money: 1000.0
+      2:
+        name: "Espectro"
+        subprefix: "&8[&bEspectro&8]"
+        perks: "Invisibilidad breve (2s) al agacharse en la oscuridad."
+        disadvantages: "Recibe +15% daño de proyectiles."
+        required_item: "SOUL_SOIL"
+        required_item_amount: 16
+        cost_money: 5000.0
+      3:
+        name: "Yokai"
+        subprefix: "&8[&3&lYokai&8]"
+        perks: "Paso Espectral: Atraviesa bloques durante 3s (CD: 20 min)."
+        disadvantages: "Luz solar directa anula la intangibilidad."
+        required_item: "AMETHYST_SHARD"
+        required_item_amount: 8
+        cost_money: 15000.0
+      4:
+        name: "Sombra"
+        subprefix: "&8[&b&lSombra&8]"
+        perks: "Inmunidad al daño por ahogamiento y suffocación."
+        disadvantages: "No equipa armaduras de hierro o netherite."
+        required_item: "ENDER_PEARL"
+        required_item_amount: 1
+        cost_money: 45000.0
+      5:
+        name: "Astral Lord"
+        subprefix: "&8[&3&lAstral Lord&8]"
+        perks: "Posesión Temporal: Inmoviliza al objetivo reflejando daño."
+        disadvantages: "Luz intensa de fanales causa Ceguera I."
+        required_item: "GHAST_TEAR"
+        required_item_amount: 3
+        cost_money: 100000.0
+      6:
+        name: "Yokai Overlord"
+        subprefix: "&8[&3&kI&b&lYOKAI OVERLORD&3&kI&8]"
+        perks: "Vuelo etéreo flotante sin Elytra. Levita al recibir golpes. Velo de Sombras y Desplazamiento Astral."
+        disadvantages: "Nivel Máximo. Intangibilidad y agilidad espectral."
+        required_item: "NETHERITE_INGOT"
+        required_item_amount: 1
+        cost_money: 0.0
+
+  # ROW 4 (Slots 36-44)
+  # Slot 36: player_head (Datos del jugador)
+  # Slots 37-43: black_stained_glass_pane
+  # Slot 44: lime_wool (Confirmar / Cambiar raza)

@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/carved_pumpkin"
+    },
+    "entries": [
+      {
+        "threshold": 21007.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/custom/celestial_crown"
+        }
+      },
+      {
+        "threshold": 21014.0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "cytricos:item/custom/astralis_halo"
+        }
+      }
+    ]
+  }
+}

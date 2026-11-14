@@ -1,0 +1,10 @@
+{
+  "layers": {
+    "wings": [
+      {
+        "texture": "cytricos:dark_angel_wings",
+        "use_player_texture": false
+      }
+    ]
+  }
+}

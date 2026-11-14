@@ -1,0 +1,212 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/feather"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 20001
+      },
+      "model": "cytricos:item/wings/angel_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20002
+      },
+      "model": "cytricos:item/wings/demon_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20003
+      },
+      "model": "cytricos:item/wings/vampire_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20004
+      },
+      "model": "cytricos:item/wings/dragon_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20005
+      },
+      "model": "cytricos:item/wings/fairy_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20006
+      },
+      "model": "cytricos:item/wings/phoenix_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20007
+      },
+      "model": "cytricos:item/wings/dark_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20008
+      },
+      "model": "cytricos:item/wings/celestial_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20009
+      },
+      "model": "cytricos:item/wings/dark_angel_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20010
+      },
+      "model": "cytricos:item/wings/void_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20011
+      },
+      "model": "cytricos:item/wings/nature_wings"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20101
+      },
+      "model": "cytricos:item/wings/angel_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20102
+      },
+      "model": "cytricos:item/wings/demon_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20103
+      },
+      "model": "cytricos:item/wings/vampire_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20104
+      },
+      "model": "cytricos:item/wings/dragon_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20105
+      },
+      "model": "cytricos:item/wings/fairy_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20106
+      },
+      "model": "cytricos:item/wings/phoenix_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20107
+      },
+      "model": "cytricos:item/wings/dark_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20108
+      },
+      "model": "cytricos:item/wings/celestial_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20109
+      },
+      "model": "cytricos:item/wings/dark_angel_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20110
+      },
+      "model": "cytricos:item/wings/void_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20111
+      },
+      "model": "cytricos:item/wings/nature_wings_left"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20201
+      },
+      "model": "cytricos:item/wings/angel_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20202
+      },
+      "model": "cytricos:item/wings/demon_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20203
+      },
+      "model": "cytricos:item/wings/vampire_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20204
+      },
+      "model": "cytricos:item/wings/dragon_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20205
+      },
+      "model": "cytricos:item/wings/fairy_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20206
+      },
+      "model": "cytricos:item/wings/phoenix_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20207
+      },
+      "model": "cytricos:item/wings/dark_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20208
+      },
+      "model": "cytricos:item/wings/celestial_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20209
+      },
+      "model": "cytricos:item/wings/dark_angel_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20210
+      },
+      "model": "cytricos:item/wings/void_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 20211
+      },
+      "model": "cytricos:item/wings/nature_wings_right"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 21005
+      },
+      "model": "cytricos:item/custom/fairy_dew_amulet"
+    }
+  ]
+}

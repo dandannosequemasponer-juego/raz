@@ -1,0 +1,39 @@
+name: CytricosRaces
+version: '7.0.0'
+main: com.cytricos.races.CytricosRaces
+api-version: '26.2'
+author: Dandan_13
+authors: [Dandan_13, Wolfit12]
+description: Sistema Oficial de Razas Dinámico, Progresión de 6 Niveles, Cosméticos 3D y Reliquias para CYTRICOS RPG.
+website: https://play.cytricos.com
+softdepend:
+  - Vault
+  - LuckPerms
+  - PlaceholderAPI
+  - ProtocolLib
+  - LibsDisguises
+  - WorldGuard
+
+commands:
+  raza:
+    description: Comando principal del sistema de razas de CYTRICOS RPG.
+    aliases: [razas]
+    permission: cytricosraces.use
+    usage: "§cUso: /raza ayuda"
+
+permissions:
+  cytricosraces.use:
+    description: Permite a los jugadores abrir el menu principal RPG y consultar estadisticas.
+    default: true
+  cytricosraces.cosmetics:
+    description: Permite a los jugadores acceder al menu de cosmeticos, auras y alas 3D.
+    default: true
+  cytricosraces.theft.exempt:
+    description: Inmunidad total contra el hurto de bolsillo de los Duendes.
+    default: op
+  cytricosraces.admin:
+    description: Acceso a la administracion in-game, entrega de reliquias/alas, pausa global y editor de slots.
+    default: op
+  cytricosraces.creator:
+    description: Acceso al creador dinamico de razas y modificacion de atributos.
+    default: op
