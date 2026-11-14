@@ -15,56 +15,29 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Integración con ProtocolLib 5.3.0 para ocultar paquetes SPAWN_ENTITY / ENTITY_METADATA
- * de cosméticos 3D (alas y coronas/aureolas) al dueño en primera persona sin afectar a otros jugadores.
- * Lead Developers: Dandan_13 & Wolfit12
- */
 public class ProtocolLibHook {
     private final CytricosRaces plugin;
     private final boolean available;
     private final Map<Integer, UUID> hiddenEntityOwners = new ConcurrentHashMap<>();
-    private PacketAdapter listener;
+    private Object listener;
 
     public ProtocolLibHook(CytricosRaces plugin) {
         this.plugin = plugin;
-        this.available = Bukkit.getPluginManager().isPluginEnabled("ProtocolLib");
-        if (this.available) {
-            registerPacketFilter();
-            plugin.getLogger().info("Integración con ProtocolLib activada para ocultación de cosméticos en 1ra persona.");
-        } else {
-            plugin.getLogger().info("ProtocolLib no detectado; usando ocultación nativa Paper (hideEntity/showEntity).");
-        }
-    }
-
-    private void registerPacketFilter() {
+        boolean enabled = false;
         try {
-            ProtocolManager pm = ProtocolLibrary.getProtocolManager();
-            this.listener = new PacketAdapter(
-                    plugin,
-                    ListenerPriority.NORMAL,
-                    PacketType.Play.Server.SPAWN_ENTITY,
-                    PacketType.Play.Server.ENTITY_METADATA
-            ) {
-                @Override
-                public void onPacketSending(PacketEvent event) {
-                    Player receiver = event.getPlayer();
-                    if (receiver == null) return;
-                    Integer entityId = event.getPacket().getIntegers().readSafely(0);
-                    if (entityId == null) return;
-                    UUID ownerUuid = hiddenEntityOwners.get(entityId);
-                    if (ownerUuid == null || !ownerUuid.equals(receiver.getUniqueId())) {
-                        return;
-                    }
-                    PlayerData data = ProtocolLibHook.this.plugin.getPlayerDataManager().get(ownerUuid);
-                    if (data != null && data.isFirstPersonWingsHidden()) {
-                        event.setCancelled(true);
-                    }
-                }
-            };
-            pm.addPacketListener(this.listener);
-        } catch (Throwable t) {
-            plugin.getLogger().warning("No se pudo registrar filtro ProtocolLib: " + t.getMessage());
+            if (Bukkit.getPluginManager().isPluginEnabled("ProtocolLib")) {
+                Class.forName("com.comphenix.protocol.ProtocolLibrary");
+                enabled = true;
+            }
+        } catch (Throwable ignored) {
+            enabled = false;
+        }
+        this.available = enabled;
+        if (this.available) {
+            this.listener = ProtocolLibBridge.register(this.plugin, hiddenEntityOwners);
+            this.plugin.getLogger().info("Integración con ProtocolLib activada para ocultación de cosméticos en 1ra persona.");
+        } else {
+            this.plugin.getLogger().info("ProtocolLib no detectado; usando ocultación nativa Paper (hideEntity/showEntity).");
         }
     }
 
@@ -89,11 +62,53 @@ public class ProtocolLibHook {
 
     public void shutdown() {
         if (available && listener != null) {
+            ProtocolLibBridge.unregister(listener);
+            listener = null;
+        }
+        hiddenEntityOwners.clear();
+    }
+
+    private static final class ProtocolLibBridge {
+        private static Object register(final CytricosRaces racesPlugin, final Map<Integer, UUID> hiddenEntityOwners) {
             try {
-                ProtocolLibrary.getProtocolManager().removePacketListener(listener);
+                ProtocolManager pm = ProtocolLibrary.getProtocolManager();
+                PacketAdapter adapter = new PacketAdapter(
+                        racesPlugin,
+                        ListenerPriority.NORMAL,
+                        PacketType.Play.Server.SPAWN_ENTITY,
+                        PacketType.Play.Server.ENTITY_METADATA
+                ) {
+                    @Override
+                    public void onPacketSending(PacketEvent event) {
+                        Player receiver = event.getPlayer();
+                        if (receiver == null) return;
+                        Integer entityId = event.getPacket().getIntegers().readSafely(0);
+                        if (entityId == null) return;
+                        UUID ownerUuid = hiddenEntityOwners.get(entityId);
+                        if (ownerUuid == null || !ownerUuid.equals(receiver.getUniqueId())) {
+                            return;
+                        }
+                        PlayerData data = racesPlugin.getPlayerDataManager().get(ownerUuid);
+                        if (data != null && data.isFirstPersonWingsHidden()) {
+                            event.setCancelled(true);
+                        }
+                    }
+                };
+                pm.addPacketListener(adapter);
+                return adapter;
+            } catch (Throwable t) {
+                racesPlugin.getLogger().warning("No se pudo registrar filtro ProtocolLib: " + t.getMessage());
+                return null;
+            }
+        }
+
+        private static void unregister(Object listener) {
+            try {
+                if (listener instanceof PacketAdapter adapter) {
+                    ProtocolLibrary.getProtocolManager().removePacketListener(adapter);
+                }
             } catch (Throwable ignored) {
             }
         }
-        hiddenEntityOwners.clear();
     }
 }
